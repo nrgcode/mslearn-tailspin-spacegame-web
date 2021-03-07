@@ -58,6 +58,13 @@ steps:
   displayName: 'Run WhiteSource Bolt'
   inputs:
     cwd: '$(System.DefaultWorkingDirectory)'
+  # condition: |
+  # and
+  # (
+  #   succeeded(),
+  #   eq(variables['Build.Reason'], 'PullRequest'),
+  #   eq(variables['System.PullRequest.TargetBranch'], 'master')
+  # )
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
